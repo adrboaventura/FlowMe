@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FlowMe - Dynamic Workflows</title>
+    <meta name="theme-color" content="#80b4ab">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              candy: {
+                petrol: '#80b4ab',
+                aqua: '#B2F7EF',
+                pink: '#FFD6E0',
+                mint: '#F9FBFB' // Lighter mint for cleaner background
+              }
+            },
+            fontFamily: {
+              sans: ['Quicksand', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.05)',
+              'heavy': '0 20px 60px -15px rgba(0,0,0,0.1)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F9FBFB;
+        overscroll-behavior-y: contain;
+        color: #334155; /* slate-700 */
+      }
+      .page-transition {
+        transition: all 0.2s ease-out;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* FLAT ICON SYSTEM: Monochrome desaturation */
+      .flat-icon {
+        filter: grayscale(1) contrast(0.8) opacity(0.7);
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .active .flat-icon, button:hover .flat-icon {
+        filter: grayscale(0) contrast(1) opacity(1);
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @media print {
+        .no-print { display: none !important; }
+        .print-only { display: block !important; }
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "jwt-decode": "https://esm.sh/jwt-decode@4.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased text-slate-700">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "FlowMe",
+  "description": "A dynamic no-code workflow tool powered by Gemini that translates voice commands into functional business processes, from study guides to farm management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
